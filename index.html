@@ -19,8 +19,9 @@
   <script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-app="runwayApp" ng-controller="MainCtrl">
-  <div class="container" ng-repeat="post in posts">
+  <div class="container" ng-repeat="post in posts | orderBy:'-upvotes'">
     <div class="row">
+      <span ng-click="incrementUpvotes(post)">^</span>
       <div class="col-md-6 col-md-offset-3">{{post.title}} - upvotes: {{post.upvotes}}</div>
     </div>
   </div>
